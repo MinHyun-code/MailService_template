@@ -36,7 +36,7 @@ public class MailService {
 	@Value("${mail.pw}")
 	private String password;	
 
-	@Scheduled(cron = "0 0 18 ? * MON-FRI")
+	@Scheduled(cron = "0 10 18 ? * MON-FRI")
 	// @Scheduled(cron = "0 * * * * *")
 	public void gmailSend() throws UnsupportedEncodingException {
 
