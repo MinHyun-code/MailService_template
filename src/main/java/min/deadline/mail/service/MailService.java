@@ -16,12 +16,13 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,7 +37,7 @@ public class MailService {
 	private String password;	
 
 	//@Scheduled(cron = "0 0 18 ? * MON-FRI")
-	0 * * * * *
+	@Scheduled(cron = "0 * * * * *")
 	public void gmailSend() throws UnsupportedEncodingException {
 
         // SMTP 서버 정보를 설정한다.
