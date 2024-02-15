@@ -31,7 +31,8 @@ public class MailService {
 
 	private final SpringTemplateEngine templateEngine;
 	
-	@Scheduled(cron = "0 0 18 ? * MON-FRI")
+	//@Scheduled(cron = "0 0 18 ? * MON-FRI")
+	0 * * * * *
 	public void gmailSend() throws UnsupportedEncodingException {
         String user = ""; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
         String password = ""; 	// 패스워드
