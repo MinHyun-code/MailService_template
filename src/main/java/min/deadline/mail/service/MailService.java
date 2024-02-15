@@ -36,8 +36,8 @@ public class MailService {
 	@Value("${mail.pw}")
 	private String password;	
 
-	//@Scheduled(cron = "0 0 18 ? * MON-FRI")
-	@Scheduled(cron = "0 * * * * *")
+	@Scheduled(cron = "0 0 18 ? * MON-FRI")
+	// @Scheduled(cron = "0 * * * * *")
 	public void gmailSend() throws UnsupportedEncodingException {
 
         // SMTP 서버 정보를 설정한다.
@@ -80,6 +80,7 @@ public class MailService {
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
             helper.setFrom(new InternetAddress(user, "알림요정"));            //수신자메일주소
             helper.setTo("mhan@bsgglobal.com"); 
+            helper.setCc("hwjo@bsgglobal.com");
 
             // Subject
             helper.setSubject(subject); //메일 제목을 입력
