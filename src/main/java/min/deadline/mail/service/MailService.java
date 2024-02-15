@@ -36,7 +36,7 @@ public class MailService {
 	@Value("${mail.pw}")
 	private String password;	
 
-	@Scheduled(cron = "0 10 18 ? * MON-FRI")
+	@Scheduled(cron = "0 20 18 * * ?")
 	// @Scheduled(cron = "0 * * * * *")
 	public void gmailSend() throws UnsupportedEncodingException {
 
@@ -61,19 +61,15 @@ public class MailService {
         
         // 제목
         String subject = "[알림] 일별 업무 시간 등록";
-//        
-//        // 금
-//        if(dayOfWeek.getValue() == 5) {
-//        	subject = "[알림] 일별 업무 시간 마감";
-//        }
-//        // 월/화/수/목
-//        else if(dayOfWeek.getValue() == 1 || dayOfWeek.getValue() == 2 || dayOfWeek.getValue() == 3 || dayOfWeek.getValue() == 4) {
-//        	subject = "[알림] 일별 업무 시간 등록";
-//        }
-//        // 주말
-//        else {
-//        	return;
-//        }
+        
+        // 금
+        if(dayOfWeek.getValue() == 1 || dayOfWeek.getValue() == 2 || dayOfWeek.getValue() == 3 || dayOfWeek.getValue() == 4 || dayOfWeek.getValue() == 5) {
+        
+        }
+        // 주말
+        else {
+        	return;
+        }
         
         try {
             MimeMessage message = new MimeMessage(session);
