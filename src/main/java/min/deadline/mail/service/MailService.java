@@ -37,7 +37,7 @@ public class MailService {
 	private String password;	
 
 	//@Scheduled(cron = "0 * * * * *")
-	@Scheduled(cron = "0 30 18 * * *")
+	@Scheduled(cron = "0 0 18 * * *", zone = "KST")
 	public void gmailSend() throws UnsupportedEncodingException {
 
         // SMTP 서버 정보를 설정한다.
